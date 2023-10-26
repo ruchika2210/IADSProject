@@ -1,0 +1,5 @@
+.
+├── IADSProjectDjango # project settings
+├── account # register, login and auth
+├── manage.py
+└── payment # payment gateway
