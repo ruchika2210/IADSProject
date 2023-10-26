@@ -1,0 +1,60 @@
+<!DOCTYPE html>{% load compress static hc_extras %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>RocketExchange - By Group1</title>
+    {% block description %}
+    <meta name="description"
+          content="Monitor and Get Notified When Your Cron Jobs Fail. Free alternative to Cronitor and Dead Man's Snitch.">
+    {% endblock %}
+    {% block keywords %}
+    <meta name="keywords"
+          content="healthchecks, monitor cron jobs, cron monitoring, cron job syntax, health checks, crontab cheat sheet, crontab monitoring, cronjob monitoring, cron dashboard">
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <meta name="apple-mobile-web-app-title" content="{{ site_name }}">-->
+<!--    <meta name="application-name" content="{{ site_name }}">-->
+    {% if request.user.is_authenticated and request.profile.theme == 'dark' %}
+    <meta name="theme-color" content="#18181b">
+    {% endif %}
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.svg' %}">
+    {% endcompress %}
+</head>
+<body>
+{% debug_warning %}
+<!--{% if request.user.is_authenticated and request.profile.deletion_scheduled_date %}-->
+<!--<div id="account-warning">-->
+<!--    Warning: Your account is scheduled for deletion on {{ request.profile.deletion_scheduled_date.date }}.-->
+<!--    <a href="mailto:{% support_email %}">Contact support</a> to resolve.-->
+<!--</div>-->
+<!--{% endif %}-->
+{% block containers %}
+<div>
+    {% block content %}{% endblock %}
+</div>
+{% endblock %}
+
+<footer class="footer">
+    <div >
+    <ul>
+        <li>
+            Rocket Exchange &copy; Group1
+            (<a href="https://github.com/ruchika2210/IADSProject">github</a>)
+        </li>
+    </ul>
+    </div>
+</footer>
+
+<!--    if professor allows us to use JQ or BS-->
+<!--    {% block base_modals %}{% endblock %}-->
+
+<!--    {% block base_scripts %}-->
+<!--    {% compress js %}-->
+<!--    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>-->
+<!--    <script src="{% static 'js/bootstrap.min.js' %}"></script>-->
+<!--    {% endcompress %}-->
+<!--    {% endblock %}-->
+
+<!--    {% block scripts %}{% endblock %}-->
+</body>
+</html>
