@@ -6,11 +6,14 @@ from .models import UserProfile
 
 def signup(request):
     if request.method == 'POST':
+        print(f"Received a POST request to the 'signup' view")
+
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            print(user)
             login(request, user)
-            return redirect('user_profile')
+            return redirect('login')
     else:
         form = UserCreationForm()
     return render(request, 'authuser/signup.html', {'form': form})

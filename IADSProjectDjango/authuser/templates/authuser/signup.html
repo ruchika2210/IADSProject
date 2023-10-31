@@ -1,17 +1,4 @@
-{% comment %} <!DOCTYPE html>
-<html>
-<head>
-    <title>Sign Up</title>
-</head>
-<body>
-    <h2>Sign Up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign Up</button>
-    </form>
-</body>
-</html> {% endcomment %}
+
 
 {% load static %}
 
@@ -26,6 +13,13 @@
         <div class="form-box">
             <h2 id="title">Sign Up</h2>
             <form method="post">
+                {% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>Error:</strong> Please correct the errors below.
+        {{ form.errors }}
+    </div>
+{% endif %}
+
 
                 {% csrf_token %}
                 <div class="input-group">
@@ -35,9 +29,14 @@
                             <label for="id_username">Username:</label>
                             <input type="text" name="username" required id="id_username">
                         </div>
-                        <div class="input-field" id="namefield">
-                            <label for="id_password">Password:</label>
-                            <input type="password" name="password" required id="id_password">
+                       
+                        <div class="input-field" id="passwordfield">
+                            <label for="id_password1">Password:</label>
+                            <input type="password" name="password1" required id="id_password1">
+                        </div>
+                        <div class="input-field" id="passwordfield">
+                            <label for="id_password2">Confirm Password:</label>
+                            <input type="password" name="password2" required id="id_password2">
                         </div>
                         <div class="btn-field">
                             <button type="submit">Sign Up</button>
